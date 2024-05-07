@@ -64,7 +64,7 @@ function App() {
 
     var newForecastData = { ...forecastData }
     // Group by Date
-    if (forecastData.cod != "404") {
+    if (forecastData.cod !== "404") {
       newForecastData.list = []
       let groupedByDate = []
       let tempDate = forecastData.list[0].dt_txt.split(" ")[0]
@@ -97,7 +97,7 @@ function App() {
         <button className='button-main lg:w-6/12 w-full' onClick={handleSearch}>Search</button>
       </div>
       {
-        currentWeather !== null && currentWeather?.cod === "200" &&
+        currentWeather !== null && currentWeather?.cod === 200 &&
         <div className="container mx-auto p-5 flex justify-center items-center">
           <div className="lg:w-6/12 w-full flex flex-col dark:bg-zinc-700 bg-slate-200 rounded py-5">
             <div className='flex flex-col justify-center items-center'>
