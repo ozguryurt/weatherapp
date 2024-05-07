@@ -16,7 +16,6 @@ function App() {
 
   useEffect(() => {
     const userTheme = localStorage.theme;
-    console.log(userTheme)
 
     if (userTheme !== undefined) {
       if (userTheme === "light") {
