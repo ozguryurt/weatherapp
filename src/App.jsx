@@ -15,27 +15,28 @@ function App() {
   const [weatherForecast, setWeatherForecast] = useState(null)
 
   useEffect(() => {
-    const userTheme = localStorage.theme || null;
+    const userTheme = localStorage.theme;
+    console.log(userTheme)
 
-    if (userTheme !== null) {
-      if (userTheme === 'light') {
-        document.documentElement.classList.add('dark')
-        localStorage.theme = 'dark'
-        setTheme('dark')
-      } else if (userTheme === 'dark') {
-        document.documentElement.classList.remove('dark')
-        localStorage.theme = 'light'
-        setTheme('light')
+    if (userTheme !== undefined) {
+      if (userTheme === "light") {
+        document.documentElement.classList.remove("dark")
+        localStorage.theme = "light"
+        setTheme("light")
+      } else if (userTheme === "dark") {
+        document.documentElement.classList.add("dark")
+        localStorage.theme = "dark"
+        setTheme("dark")
       }
     } else {
       if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-        document.documentElement.classList.add('dark')
-        localStorage.theme = 'dark'
-        setTheme('dark')
+        document.documentElement.classList.add("dark")
+        localStorage.theme = "dark"
+        setTheme("dark")
       } else {
-        document.documentElement.classList.remove('dark')
-        localStorage.theme = 'light'
-        setTheme('light')
+        document.documentElement.classList.remove("dark")
+        localStorage.theme = "light"
+        setTheme("light")
       }
     }
   }, [])
@@ -43,13 +44,13 @@ function App() {
   const handleTheme = () => {
     const userTheme = localStorage.theme || null;
 
-    if (userTheme === 'light') {
-      document.documentElement.classList.add('dark')
-      localStorage.theme = 'dark'
-      setTheme('dark')
-    } else if (userTheme === 'dark') {
-      document.documentElement.classList.remove('dark')
-      localStorage.theme = 'light'
+    if (userTheme === "light") {
+      document.documentElement.classList.add("dark")
+      localStorage.theme = "dark"
+      setTheme("dark")
+    } else if (userTheme === "dark") {
+      document.documentElement.classList.remove("dark")
+      localStorage.theme = "light"
       setTheme('light')
     }
   }
@@ -87,7 +88,7 @@ function App() {
       <div className="container mx-auto p-5 dark:bg-zinc-800 bg-slate-50 flex flex-col gap-y-3 justify-center items-center">
         <button className='button-main' onClick={handleTheme}>
           {
-            theme === 'dark' ?
+            theme === "dark" ?
               <MdOutlineLightMode size={25} />
               :
               <MdOutlineDarkMode size={25} />
